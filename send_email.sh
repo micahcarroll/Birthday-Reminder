@@ -10,3 +10,5 @@ EMAIL="micah.d.carroll@berkeley.edu"
 EMAILMESSAGE=$(</Users/Micah/git/BirthdayReminder/emails/latest_email.txt)
 # send an email
 echo "$EMAILMESSAGE" | mail -s "$SUBJECT" "$EMAIL"
+open .
+

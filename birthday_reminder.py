@@ -5,10 +5,13 @@ import numpy as np
 # Add unsure + add age + add when upcoming
 def compose_email(birthdays_today, upcoming_birthdays):
 	birthdays_today_string = "Today it is {} people's birthdays: {}".format(len(birthdays_today), ", ".join(list(birthdays_today['Name'])))
-	upcoming_birthdays_string = "Upcoming birthdays are: {}".format(", ".join(list(upcoming_birthdays['Name'])))
+	
+	if upcoming_birthdays:
+		upcoming_birthdays_string = "Upcoming birthdays are: {}".format(", ".join(list(upcoming_birthdays['Name'])))
+		birthdays_today_string = birthdays_today_string + "\n\n" + upcoming_birthdays_string
 
 	today_string = "[Update for {}]".format(today)
-	final_email_string = "Hello!\n\n" + birthdays_today_string + "\n\n" + upcoming_birthdays_string + "\n\n That's it! \n Thanks for checking in!"
+	final_email_string = "Hello!\n\n" + birthdays_today_string + "\n\n That's it! \n Thanks for checking in!"
 	return final_email_string
 
 # Add dynamic naming for emails with the current date
